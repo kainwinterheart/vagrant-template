@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'chef-client'
+cookbook 'apt'
+cookbook 'unattended-upgrades', :git => 'https://github.com/patdeegan/chef-unattended-upgrades.git'
+cookbook 'vim'
+cookbook 'fail2ban'
+cookbook 'ufw'
+cookbook 'htop'
+cookbook 'ssh_known_hosts'
+cookbook 'java'
+cookbook 'python'
+cookbook 'ntp'
+cookbook 'sudo'
+cookbook 'logwatch'
+cookbook 'apache2'
+cookbook 'database'
+cookbook 'postgresql'
+cookbook 'omnibus_updater', :git => 'git://github.com/hw-cookbooks/omnibus_updater.git'
+

@@ -1,0 +1,15 @@
+Get omnibus updater working again
+Upgrade Vagrantfile to new version 2 syntax in order to get rid of warnings
+Add configuration of apache mod_wsgi site config file using apache cookbook 
+same for a passenger site
+elasticsearch
+mysql
+postgresql
+ruby
+node.js
+nginx
+sensu
+fail2ban
+authorized_hosts
+sudoers
+papertrail?
