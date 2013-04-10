@@ -19,5 +19,6 @@ cookbook 'logwatch'
 cookbook 'apache2'
 cookbook 'database'
 cookbook 'postgresql'
-cookbook 'omnibus_updater', :git => 'git://github.com/hw-cookbooks/omnibus_updater.git'
+cookbook 'omnibus_updater'
+cookbook 'nodejs'
 

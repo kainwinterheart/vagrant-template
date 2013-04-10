@@ -1,8 +1,9 @@
 #
-# Cookbook Name:: apt
-# Recipe:: cacher-ng
+# Author:: Marius Ducea (marius@promethost.com)
+# Cookbook Name:: nodejs
+# Recipe:: default
 #
-# Copyright 2008-2012, Opscode, Inc.
+# Copyright 2010-2012, Promet Solutions
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,23 +17,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-package "apt-cacher-ng" do
-  action :install
+case node['platform_family']
+  when "debian"
+   include_recipe "apt"
 end
 
-template "/etc/apt-cacher-ng/acng.conf" do
-  source "acng.conf.erb"
-  owner "root"
-  group "root"
-  mode 00644
-  notifies :restart, "service[apt-cacher-ng]"
-end
-
-service "apt-cacher-ng" do
-  supports :restart => true, :status => false
-  action [:enable, :start]
-end
-
-#this will help seed the proxy
-include_recipe "apt::cacher-client"
+include_recipe "nodejs::install_from_#{node['nodejs']['install_method']}"

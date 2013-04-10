@@ -1,17 +1,15 @@
-Get omnibus updater working again - perhaps switch to https://github.com/schisamo/vagrant-omnibus
-# make sure that middleware doesn't force chef on every single box, only ones that call for it
-
-Upgrade Vagrantfile to new version 2 syntax in order to get rid of warnings
 Add configuration of apache mod_wsgi site config file using apache cookbook 
 same for a passenger site
-elasticsearch
-mysql
-postgresql
-ruby
-node.js
-nginx
-sensu
-fail2ban
-authorized_hosts
-sudoers
-papertrail?
+
+Show config for these common requirements:
+
+* elasticsearch
+* mysql
+* postgresql
+* ruby
+* nginx
+* sensu
+* fail2ban
+* authorized_hosts
+* sudoers
+* papertrail?

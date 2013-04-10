@@ -24,24 +24,26 @@ Vagrant::Config.run do |config|
   cookbooks_path = ["chef/cookbooks", "chef/site-cookbooks"]
 
   # the first chef run just upgrades the chef client to the version specified
-  #config.vm.provision :chef_solo do |chef|
-  #  chef.cookbooks_path = cookbooks_path
-  #  chef.add_recipe "omnibus_updater"
-  #  chef.json = {
-  #    :omnibus_updater => { :version => '11.4.0', :install_via => 'deb', :base_uri => 'http://opscode-omnitruck-release.s3.amazonaws.com' }
-  #  }
-  #end
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = cookbooks_path
+    chef.add_recipe "omnibus_updater"
+    chef.json = {
+      :omnibus_updater => { :version => '11.4.0-1', :install_via => 'deb', :base_uri => 'http://opscode-omnitruck-release.s3.amazonaws.com' }
+    }
+  end
 
   # the second chef run will use the updated chef client and
   # do our normal configuration with the latest chef
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = cookbooks_path
-    chef.add_recipe "apt"
-    chef.add_recipe "build-essential"
+    chef.add_recipe "recipe[apt]"
+    chef.add_recipe "recipe[build-essential]"
     chef.add_recipe "recipe[unattended-upgrades]"
-    chef.add_recipe "python"
-    chef.add_recipe "java"
-    chef.add_recipe "custom"
+    chef.add_recipe "recipe[python]"
+    chef.add_recipe "recipe[java]"
+    chef.add_recipe "recipe[nodejs::install_from_binary]"
+    chef.add_recipe "recipe[nodejs::npm]"
+    chef.add_recipe "recipe[custom]"
 
     chef.json = {
       :postgresql => {
