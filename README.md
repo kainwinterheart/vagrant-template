@@ -13,9 +13,14 @@ A template to help bootstrap new vagrant projects.
 Port 8000 from the local host is forwarded into the vagrant machine, so
 run your webapp listening on that port and you can access it from the host
 using http://localhost:8000. Changes made to code in this directory are reflected
-inside the vagrant machine using a shared folder.
+inside the vagrant machine using a shared folder which is mapped to /vagrant.
 
 You can access the vagrant machine from inside other virtualbox machines
 such as the [IEVMS](https://github.com/xdissent/ievms) project by going to http://192.168.50.50:8000.
+
+Configuration management is handled using chef-solo. Recipes and settings are listed
+in Vagrantfile, cookbooks are managed using librarian-chef in the chef/ subdir and
+are all checked into git, and custom configuration is handled in
+chef/cookbooks/custom/recipes/default.rb
 
 See TODO
