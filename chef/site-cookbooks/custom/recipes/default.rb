@@ -49,14 +49,14 @@ directory "/home/vagrant/html" do
 end
 
 # make a symlink
-link "/home/vagrant/pyweb" do
+link "/home/vagrant/your-repo-is-here" do
   action :create
   link_type :symbolic
   to "/vagrant/"
 end
 
 # if this file does not exist, create it with the content "prod"
-file "/home/vagrant/pyweb/env.txt" do
+file "/home/vagrant/your-repo-is-here/env.txt" do
   owner "vagrant"
   group "vagrant"
   mode "0755"

@@ -1,3 +1,5 @@
+Set up a foreman example (and pre-install foreman)
+
 Add configuration of apache mod_wsgi site config file using apache cookbook 
 same for a passenger site
 
