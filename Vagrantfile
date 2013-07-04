@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu12.04_chef-11.2.0"
   config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.2.0.box"
-  config.vm.network :forwarded_port, guest: 8000, host: 8000, auto_correct: true
+  config.vm.network :forwarded_port, guest: 8000, host: 8000, auto_correct: false
 
   # this block of settings are specific to virtualbox,
   # ignored for other providers
